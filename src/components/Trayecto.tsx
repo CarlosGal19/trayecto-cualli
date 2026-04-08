@@ -55,6 +55,18 @@ export default function Trayecto() {
             [newArray[index3], newArray[index4]] =
               [newArray[index4], newArray[index3]];
 
+            // 🧠 calcular total actual del front
+            const currentTotal = newArray.reduce((acc, e) => acc + e.tiempo, 0);
+
+            // 🧠 calcular delta real
+            const delta = data.total - currentTotal;
+
+            // ⏱️ aplicar delta al estudio en espera
+            const enEspera = newArray.find(e => e.estado === "espera");
+            if (enEspera) {
+              enEspera.tiempo += delta;
+            }
+
             return newArray;
           });
 
