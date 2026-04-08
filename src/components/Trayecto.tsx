@@ -25,7 +25,7 @@ export default function Trayecto() {
 
   const [popup, setPopup] = useState<AlertaPop | null>(null);
 
-  const total = estudios.reduce((acc, e) => acc + e.tiempo, 100);
+  const total = estudios.reduce((acc, e) => acc + e.tiempo, 50);
 
   useEffect(() => {
     const ws = new WebSocket("wss://cualli-ap.onrender.com");
