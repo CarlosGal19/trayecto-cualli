@@ -29,8 +29,6 @@ export default function Trayecto() {
 
   useEffect(() => {
     const ws = new WebSocket("wss://cualli-ap.onrender.com");
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    let isFirstMessage = true;
 
     ws.onmessage = (event) => {
       try {
@@ -38,7 +36,6 @@ export default function Trayecto() {
 
         // 🔰 ignorar INIT si quieres
         if (data.type === "INIT") {
-          isFirstMessage = false;
           return;
         }
 
