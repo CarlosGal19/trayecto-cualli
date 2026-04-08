@@ -25,7 +25,7 @@ export default function Trayecto() {
 
   const [popup, setPopup] = useState<AlertaPop | null>(null);
 
-  const total = estudios.reduce((acc, e) => acc + e.tiempo, 50);
+  const total = estudios.reduce((acc, e) => acc + e.tiempo, 30);
 
   useEffect(() => {
     const ws = new WebSocket("wss://cualli-ap.onrender.com");
@@ -56,7 +56,7 @@ export default function Trayecto() {
               [newArray[index4], newArray[index3]];
 
             // 🧠 calcular total actual del front
-            const currentTotal = newArray.reduce((acc, e) => acc + e.tiempo, 0);
+            const currentTotal = newArray.reduce((acc, e) => acc + e.tiempo, 30);
 
             // 🧠 calcular delta real
             const delta = data.total - currentTotal;
